@@ -22,5 +22,14 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="OnClick"
+        android:text="aDD USER"
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="306dp" />
+
 
 </android.support.constraint.ConstraintLayout>
