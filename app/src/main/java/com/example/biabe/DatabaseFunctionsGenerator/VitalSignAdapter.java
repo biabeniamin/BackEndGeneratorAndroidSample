@@ -1,6 +1,8 @@
 //generated automatically
 package com.example.biabe.DatabaseFunctionsGenerator;
 import com.example.biabe.DatabaseFunctionsGenerator.Models.*;
+import com.example.biabe.backendgeneratorandroidsample.R;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

@@ -14,6 +14,11 @@ implementation 'com.squareup.retrofit2:retrofit:2.4.0'
 implementation 'com.google.code.gson:gson:2.6.2'
 implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
 
+#Add The internet access
+
+In Android Manifest add the internet access
+<uses-permission android:name="android.permission.INTERNET" />
+
 #Create new package
 
 Right click on java in project explorer -> New -> Package -> select the main folder in directory structure -> Add the followiung package name
@@ -51,4 +56,8 @@ Users.getUsers(new Callback<List<User>>() {
     }
 });
 
+#Import app main package in Adapters
+
+Import app main package in Adapters to finds the ids for text boxes
+import com.example.biabe.backendgeneratorandroidsample.R;
 
