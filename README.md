@@ -17,7 +17,7 @@ implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
 ## Add The internet access
 
 In Android Manifest add the internet access
-<uses-permission android:name="android.permission.INTERNET" />
+< uses-permission android:name="android.permission.INTERNET" / >
 
 ## Create new package
 
