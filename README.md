@@ -38,6 +38,15 @@ To display data from api into ui, create a simple list view in main layout, get 
 
 final ListView listView = (ListView) findViewById(R.id.listView);
 
+Import the package
+import DatabaseFunctionsGenerator.*;
+import DatabaseFunctionsGenerator.Models.*;
+
+Also import the retrofit 
+import retrofit2.Call;
+import retrofit2.CallBack;
+import retrofit2.Response;
+
 Add the event handler to handle data received from server
 
 Users.getUsers(new Callback<List<User>>() {
