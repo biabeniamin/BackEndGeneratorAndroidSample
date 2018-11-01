@@ -17,7 +17,7 @@ public class RetrofitInstance {
                 .create();
 
         builder = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.100/generator/test/")
+                .baseUrl("http://codeforgood18.avramiancuturda.ro/")
                 .addConverterFactory(GsonConverterFactory.create(gson));
 
         retrofit = builder.build();
