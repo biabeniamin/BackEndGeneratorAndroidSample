@@ -41,20 +41,18 @@ final ListView listView = (ListView) findViewById(R.id.listView);
 Add the event handler to handle data received from server
 
 Users.getUsers(new Callback<List<User>>() {
-    @Override
-    public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-	List<User> users = response.body();
-	listView.setAdapter(new UserAdapter(users,getApplicationContext()));
-	//Toast.makeText(MainActivity.this, "not error", Toast.LENGTH_LONG).show();
+            @Override
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                List users = response.body();
+                listView.setAdapter(new UserAdapter(users,getApplicationContext()));
+                //Toast.makeText(MainActivity.this, "not error", Toast.LENGTH_LONG).show();
+            }
 
-	//List<User> test=Users.getUsersByUsernamePassword("Test2", "Test");
-    }
+            @Override
+            public void onFailure(Call<List<User>> call, Throwable t) {
 
-    @Override
-    public void onFailure(Call<List<User>> call, Throwable t) {
-	Toast.makeText(MainActivity.this, "error", Toast.LENGTH_LONG).show();
-    }
-});
+            }
+        });
 
 ## Import app main package in Adapters
 
