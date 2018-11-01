@@ -1,0 +1,126 @@
+------------Users----------
+http://codeforgood18.avramiancuturda.ro/Users.php?cmd=getUsers - GET request -return all Users
+
+http://codeforgood18.avramiancuturda.ro/Users.php?cmd=getUsersByUsernamePassword&username=value&password=value - GET request -return Users filtered by Username, Password
+
+http://codeforgood18.avramiancuturda.ro/Users.php?cmd=getUsersByEmail&email=value - GET request -return Users filtered by Email
+
+http://codeforgood18.avramiancuturda.ro/Users.php?cmd=getUsersByUserId&userId=value - GET request -return Users filtered by UserId
+
+
+http://codeforgood18.avramiancuturda.ro/Users.php?cmd=addUser&username=Test&password=Test&email=Test&age=0&description=Test&cNP=Test&dateOfBirth=2000-01-01 00:00:00 - GET request -add a new User with specified data and return the item with id != 0 if was added
+
+
+http://codeforgood18.avramiancuturda.ro/Users.php?cmd=addUser- POST request with following parameters
+username : VARCHAR(20)
+password : VARCHAR(20)
+email : VARCHAR(20)
+age : INT
+description : TEXT
+cNP : VARCHAR(20)
+dateOfBirth : DATETIME
+add a new User with specified data and returns the User with id != 0 if succeeded
+
+
+http://codeforgood18.avramiancuturda.ro/Users.php?cmd=updateUser- PUT request with following parameters
+userId : INT
+username : VARCHAR(20)
+password : VARCHAR(20)
+email : VARCHAR(20)
+age : INT
+description : TEXT
+cNP : VARCHAR(20)
+dateOfBirth : DATETIME
+update a User by id and returns the User with id != 0 if succeeded
+
+
+http://codeforgood18.avramiancuturda.ro/Users.php?cmd=updateUser&userId=0 - DELETE request
+deletes a User by id and returns the User with id == 0 if succeeded
+
+
+------------VitalSigns----------
+http://codeforgood18.avramiancuturda.ro/VitalSigns.php?cmd=getVitalSigns - GET request -return all VitalSigns
+
+http://codeforgood18.avramiancuturda.ro/VitalSigns.php?cmd=getVitalSignsByDeviceName&deviceName=value - GET request -return VitalSigns filtered by DeviceName
+
+http://codeforgood18.avramiancuturda.ro/VitalSigns.php?cmd=getVitalSignsByVitalSignId&vitalSignId=value - GET request -return VitalSigns filtered by VitalSignId
+
+
+http://codeforgood18.avramiancuturda.ro/VitalSigns.php?cmd=addVitalSign&userId=0&deviceName=Test&pulse=0&bodyTemperature=0 - GET request -add a new VitalSign with specified data and return the item with id != 0 if was added
+
+
+http://codeforgood18.avramiancuturda.ro/VitalSigns.php?cmd=addVitalSign- POST request with following parameters
+userId : INT
+deviceName : VARCHAR(20)
+pulse : INT
+bodyTemperature : INT
+add a new VitalSign with specified data and returns the VitalSign with id != 0 if succeeded
+
+
+http://codeforgood18.avramiancuturda.ro/VitalSigns.php?cmd=updateVitalSign- PUT request with following parameters
+vitalSignId : INT
+userId : INT
+deviceName : VARCHAR(20)
+pulse : INT
+bodyTemperature : INT
+update a VitalSign by id and returns the VitalSign with id != 0 if succeeded
+
+
+http://codeforgood18.avramiancuturda.ro/VitalSigns.php?cmd=updateVitalSign&vitalSignId=0 - DELETE request
+deletes a VitalSign by id and returns the VitalSign with id == 0 if succeeded
+
+
+------------Locations----------
+http://codeforgood18.avramiancuturda.ro/Locations.php?cmd=getLocations - GET request -return all Locations
+
+http://codeforgood18.avramiancuturda.ro/Locations.php?cmd=getLocationsByLocationId&locationId=value - GET request -return Locations filtered by LocationId
+
+
+http://codeforgood18.avramiancuturda.ro/Locations.php?cmd=addLocation&userId=0&deviceName=Test&x=0&y=0 - GET request -add a new Location with specified data and return the item with id != 0 if was added
+
+
+http://codeforgood18.avramiancuturda.ro/Locations.php?cmd=addLocation- POST request with following parameters
+userId : INT
+deviceName : VARCHAR(20)
+x : INT
+y : INT
+add a new Location with specified data and returns the Location with id != 0 if succeeded
+
+
+http://codeforgood18.avramiancuturda.ro/Locations.php?cmd=updateLocation- PUT request with following parameters
+locationId : INT
+userId : INT
+deviceName : VARCHAR(20)
+x : INT
+y : INT
+update a Location by id and returns the Location with id != 0 if succeeded
+
+
+http://codeforgood18.avramiancuturda.ro/Locations.php?cmd=updateLocation&locationId=0 - DELETE request
+deletes a Location by id and returns the Location with id == 0 if succeeded
+
+
+------------Notifications----------
+http://codeforgood18.avramiancuturda.ro/Notifications.php?cmd=getNotifications - GET request -return all Notifications
+
+http://codeforgood18.avramiancuturda.ro/Notifications.php?cmd=getNotificationsByNotificationId&notificationId=value - GET request -return Notifications filtered by NotificationId
+
+
+http://codeforgood18.avramiancuturda.ro/Notifications.php?cmd=addNotification&title=Test - GET request -add a new Notification with specified data and return the item with id != 0 if was added
+
+
+http://codeforgood18.avramiancuturda.ro/Notifications.php?cmd=addNotification- POST request with following parameters
+title : VARCHAR(15)
+add a new Notification with specified data and returns the Notification with id != 0 if succeeded
+
+
+http://codeforgood18.avramiancuturda.ro/Notifications.php?cmd=updateNotification- PUT request with following parameters
+notificationId : INT
+title : VARCHAR(15)
+update a Notification by id and returns the Notification with id != 0 if succeeded
+
+
+http://codeforgood18.avramiancuturda.ro/Notifications.php?cmd=updateNotification&notificationId=0 - DELETE request
+deletes a Notification by id and returns the Notification with id == 0 if succeeded
+
+
