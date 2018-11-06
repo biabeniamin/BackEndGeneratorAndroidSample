@@ -58,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //start notification system
+        Intent msgIntent = new Intent(this, NotificationChecker.class);
+        startService(msgIntent);
 
     }
 
@@ -77,12 +80,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void OnClick(View view)
     {
-        Intent msgIntent = new Intent(this, NotificationChecker.class);
-        startService(msgIntent);
+
 
         //if you want to add a user synchronous and you don't want to get an answer from server
         //Users.addUser(new User());//create a user with default data
-/*
+
         //if you want to add a user asynchronous and you want to display the result in ui, you can pass a callback to method
         Users.addUser(new User(), new Callback<User>() {
             @Override
@@ -98,6 +100,6 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<User> call, Throwable t) {
                 Toast.makeText(MainActivity.this, "The user adding failed!", Toast.LENGTH_LONG).show();
             }
-        });*/
+        });
     }
 }
