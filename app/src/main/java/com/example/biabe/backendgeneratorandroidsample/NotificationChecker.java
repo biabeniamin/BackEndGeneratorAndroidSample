@@ -12,6 +12,16 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 
+import com.example.biabe.DatabaseFunctionsGenerator.Models.Notification;
+import com.example.biabe.DatabaseFunctionsGenerator.Notifications;
+import com.example.biabe.DatabaseFunctionsGenerator.Users;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class NotificationChecker extends IntentService {
 
     private void sendNotification(String msg) {
@@ -19,7 +29,7 @@ public class NotificationChecker extends IntentService {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, "1")
                 .setSmallIcon(R.drawable.visa)
                 .setContentTitle("sgsd")
-                .setContentText("fgj")
+                .setContentText(msg)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
 
@@ -34,7 +44,22 @@ public class NotificationChecker extends IntentService {
         {
             synchronized (this) {
                 try {
-                    sendNotification("dsfgds");
+                    Notifications.getNotifications(new Callback<List<Notification>>() {
+                                                       @Override
+                                                       public void onResponse(Call<List<Notification>> call, Response<List<Notification>> response) {
+                                                           List<Notification> notifications = response.body();
+
+                                                           if(0 < notifications.size()) {
+                                                               sendNotification(notifications.get(0).getTitle());
+                                                           }
+                                                       }
+
+                                                       @Override
+                                                       public void onFailure(Call<List<Notification>> call, Throwable t) {
+
+                                                       }
+                                                   });
+
                     wait(3000);
                 } catch (Exception e) {
                     System.out.println("Error" + e.getMessage());
