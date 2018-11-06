@@ -16,6 +16,7 @@ import com.example.biabe.DatabaseFunctionsGenerator.Models.Notification;
 import com.example.biabe.DatabaseFunctionsGenerator.Notifications;
 import com.example.biabe.DatabaseFunctionsGenerator.Users;
 
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -23,7 +24,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class NotificationChecker extends IntentService {
-
+    private Date lastNotification;
     private void sendNotification(String msg) {
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, "1")
@@ -40,6 +41,10 @@ public class NotificationChecker extends IntentService {
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
+
+
+        lastNotification = new Date(0);
+
         while (true)
         {
             synchronized (this) {
@@ -50,7 +55,13 @@ public class NotificationChecker extends IntentService {
                                                            List<Notification> notifications = response.body();
 
                                                            if(0 < notifications.size()) {
-                                                               sendNotification(notifications.get(0).getTitle());
+                                                               int last = notifications.size() - 1;
+
+                                                               if(lastNotification.before(notifications.get(last).getCreationTime())) {
+
+                                                                   sendNotification(notifications.get(last).getTitle());
+                                                                   lastNotification = notifications.get(last).getCreationTime();
+                                                               }
                                                            }
                                                        }
 
