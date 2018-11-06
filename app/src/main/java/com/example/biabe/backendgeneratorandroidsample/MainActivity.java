@@ -63,21 +63,6 @@ public class MainActivity extends AppCompatActivity {
         startService(msgIntent);
 
     }
-
-    private void sendNotification(String msg) {
-
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, "1")
-                .setSmallIcon(R.drawable.visa)
-                .setContentTitle("sgsd")
-                .setContentText("fgj")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-
-// notificationId is a unique int for each notification that you must define
-        notificationManager.notify(1, mBuilder.build());
-
-    }
-
     public void OnClick(View view)
     {
 
