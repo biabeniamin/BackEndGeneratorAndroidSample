@@ -3,65 +3,61 @@ package com.example.biabe.backendgeneratorandroidsample;
 import android.app.IntentService;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
+import android.util.Log;
 
 public class NotificationChecker extends IntentService {
 
     private void sendNotification(String msg) {
 
-        NotificationManager mNotificationManager = (NotificationManager)
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, "1")
+                .setSmallIcon(R.drawable.visa)
+                .setContentTitle("sgsd")
+                .setContentText("fgj")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
 
-                this.getSystemService(Context.NOTIFICATION_SERVICE);
-
-
-
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-
-                new Intent(this, MainActivity.class), 0);
-
-
-
-        NotificationCompat.Builder mBuilder =
-
-                new NotificationCompat.Builder(this)
-
-                        .setSmallIcon(R.drawable.if_heart_1055045)
-
-                        .setContentTitle("PubNub GCM Notification")
-
-                        .setStyle(new NotificationCompat.BigTextStyle()
-
-                                .bigText(msg))
-
-                        .setContentText(msg);
-
-
-
-        mBuilder.setContentIntent(contentIntent);
-
-        mNotificationManager.notify(1, mBuilder.build());
+// notificationId is a unique int for each notification that you must define
+        notificationManager.notify(1, mBuilder.build());
 
     }
+
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
         while (true)
         {
-            try {
-                sendNotification("dsfgds");
-                wait(3000);
-            }
-            catch (InterruptedException e)
-            {
-
+            synchronized (this) {
+                try {
+                    sendNotification("dsfgds");
+                    wait(3000);
+                } catch (Exception e) {
+                    System.out.println("Error" + e.getMessage());
+                }
             }
         }
     }
 
-    public NotificationChecker(String name)
+
+    public NotificationChecker()
     {
-        super(name);
+        super("Service");
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        //Log.d(MyIntentServiceActivity.TAG_INTENT_SERVICE, "MyIntentService onCreate() method is invoked.");
+    }
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
     }
 }

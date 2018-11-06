@@ -1,15 +1,24 @@
 package com.example.biabe.backendgeneratorandroidsample;
 
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.StrictMode;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.biabe.DatabaseFunctionsGenerator.Locations;
-import com.example.biabe.DatabaseFunctionsGenerator.Models.Location;
 import com.example.biabe.DatabaseFunctionsGenerator.Models.User;
 import com.example.biabe.DatabaseFunctionsGenerator.UserAdapter;
 import com.example.biabe.DatabaseFunctionsGenerator.Users;
@@ -48,13 +57,32 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "error", Toast.LENGTH_LONG).show();
             }
         });
+
+
+    }
+
+    private void sendNotification(String msg) {
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, "1")
+                .setSmallIcon(R.drawable.visa)
+                .setContentTitle("sgsd")
+                .setContentText("fgj")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+
+// notificationId is a unique int for each notification that you must define
+        notificationManager.notify(1, mBuilder.build());
+
     }
 
     public void OnClick(View view)
     {
+        Intent msgIntent = new Intent(this, NotificationChecker.class);
+        startService(msgIntent);
+
         //if you want to add a user synchronous and you don't want to get an answer from server
         //Users.addUser(new User());//create a user with default data
-
+/*
         //if you want to add a user asynchronous and you want to display the result in ui, you can pass a callback to method
         Users.addUser(new User(), new Callback<User>() {
             @Override
@@ -70,6 +98,6 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<User> call, Throwable t) {
                 Toast.makeText(MainActivity.this, "The user adding failed!", Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
     }
 }
