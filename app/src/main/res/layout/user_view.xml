@@ -8,12 +8,12 @@
 		android:layout_height="wrap_content"
 		android:text="Name"/>
 	<TextView
-		android:id="@+id/usernameTextBox"
+		android:id="@+id/numeTextBox"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="Name"/>
 	<TextView
-		android:id="@+id/passwordTextBox"
+		android:id="@+id/prenumeTextBox"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="Name"/>
@@ -23,22 +23,12 @@
 		android:layout_height="wrap_content"
 		android:text="Name"/>
 	<TextView
-		android:id="@+id/ageTextBox"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="Name"/>
-	<TextView
-		android:id="@+id/descriptionTextBox"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="Name"/>
-	<TextView
 		android:id="@+id/cNPTextBox"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="Name"/>
 	<TextView
-		android:id="@+id/dateOfBirthTextBox"
+		android:id="@+id/numberTelefonTextBox"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="Name"/>

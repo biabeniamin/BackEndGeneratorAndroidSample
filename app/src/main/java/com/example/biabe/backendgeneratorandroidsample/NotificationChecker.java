@@ -1,20 +1,14 @@
 package com.example.biabe.backendgeneratorandroidsample;
 
 import android.app.IntentService;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
-import android.util.Log;
 
 import com.example.biabe.DatabaseFunctionsGenerator.Models.Notification;
 import com.example.biabe.DatabaseFunctionsGenerator.Notifications;
-import com.example.biabe.DatabaseFunctionsGenerator.Users;
 
 import java.util.Date;
 import java.util.List;
@@ -25,11 +19,11 @@ import retrofit2.Response;
 
 public class NotificationChecker extends IntentService {
     private Date lastNotification;
-    private void sendNotification(String msg) {
+    private void sendNotification(String title, String msg) {
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, "1")
                 .setSmallIcon(R.drawable.visa)
-                .setContentTitle("sgsd")
+                .setContentTitle(title)
                 .setContentText(msg)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
@@ -59,7 +53,7 @@ public class NotificationChecker extends IntentService {
 
                                                                if(lastNotification.before(notifications.get(last).getCreationTime())) {
 
-                                                                   sendNotification(notifications.get(last).getTitle());
+                                                                   sendNotification(notifications.get(last).getTitle(),notifications.get(last).getMessage());
                                                                    lastNotification = notifications.get(last).getCreationTime();
                                                                }
                                                            }

@@ -20,6 +20,7 @@
         </activity>
 
         <service android:enabled="true" android:exported="true" android:name=".NotificationChecker"></service>
+        <service android:enabled="true" android:exported="true" android:name="com.example.biabe.DatabaseFunctionsGenerator.Users"></service>
 
     </application>
 
