@@ -15,7 +15,9 @@ import java.util.Date;
 public class Notification
 {
 	private Integer  notificationId;
+	private Integer  deviceOrWatch;
 	private String title;
+	private String message;
 	private Date creationTime;
 	
 	public Integer  getNotificationId()
@@ -28,6 +30,16 @@ public class Notification
 		this.notificationId = notificationId;
 	}
 	
+	public Integer  getDeviceOrWatch()
+	{
+		return this.deviceOrWatch;
+	}
+	
+	public void setDeviceOrWatch(Integer  deviceOrWatch)
+	{
+		this.deviceOrWatch = deviceOrWatch;
+	}
+	
 	public String getTitle()
 	{
 		return this.title;
@@ -36,6 +48,16 @@ public class Notification
 	public void setTitle(String title)
 	{
 		this.title = title;
+	}
+	
+	public String getMessage()
+	{
+		return this.message;
+	}
+	
+	public void setMessage(String message)
+	{
+		this.message = message;
 	}
 	
 	public Date getCreationTime()
@@ -49,15 +71,19 @@ public class Notification
 	}
 	
 	
-	public Notification(String title)
+	public Notification(Integer  deviceOrWatch, String title, String message)
 	{
+		this.deviceOrWatch = deviceOrWatch;
 		this.title = title;
+		this.message = message;
 	}
 	
 	public Notification()
 	{
 		this(
-			"Test" //Title
+			0, //DeviceOrWatch
+			"Test", //Title
+			"Test" //Message
 		);
 		this.notificationId = 0;
 		this.creationTime = new Date(0);

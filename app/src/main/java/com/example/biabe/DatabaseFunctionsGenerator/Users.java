@@ -1,12 +1,10 @@
 //generated automatically
 package com.example.biabe.DatabaseFunctionsGenerator;
 import com.example.biabe.DatabaseFunctionsGenerator.Models.*;
+
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import retrofit2.http.POST;
@@ -16,8 +14,8 @@ interface UserService
 	@GET("Users.php?cmd=getUsers")
 	Call<List<User>> getUsers();
 	
-	@GET("Users.php?cmd=getUsersByUsernamePassword")
-	Call<List<User>> getUsersByUsernamePassword(@Query("username")String username, @Query("password")String password);
+	@GET("Users.php?cmd=getUsersByNumePrenume")
+	Call<List<User>> getUsersByNumePrenume(@Query("nume")String nume, @Query("prenume")String prenume);
 	
 	@GET("Users.php?cmd=getUsersByEmail")
 	Call<List<User>> getUsersByEmail(@Query("email")String email);
@@ -73,7 +71,7 @@ public class Users
 	
 	}
 	
-	public static List<User> getUsersByUsernamePassword(String username, String password)
+	public static List<User> getUsersByNumePrenume(String nume, String prenume)
 	{
 		List<User> users;
 		UserService service;
@@ -84,7 +82,7 @@ public class Users
 		service = RetrofitInstance.GetRetrofitInstance().create(UserService.class);
 		try
 		{
-			call = service.getUsersByUsernamePassword(username, password);
+			call = service.getUsersByNumePrenume(nume, prenume);
 			users = getUsers(call);
 		}
 		catch(Exception ee)
@@ -178,7 +176,7 @@ public class Users
 	
 	}
 	
-	public static void getUsersByUsernamePassword(String username, String password, Callback<List<User>> callback)
+	public static void getUsersByNumePrenume(String nume, String prenume, Callback<List<User>> callback)
 	{
 		List<User> users;
 		UserService service;
@@ -189,7 +187,7 @@ public class Users
 		service = RetrofitInstance.GetRetrofitInstance().create(UserService.class);
 		try
 		{
-			call = service.getUsersByUsernamePassword(username, password);
+			call = service.getUsersByNumePrenume(nume, prenume);
 			getUsers(call, callback);
 		}
 		catch(Exception ee)

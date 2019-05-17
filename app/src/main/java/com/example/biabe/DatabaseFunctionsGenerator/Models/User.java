@@ -15,13 +15,11 @@ import java.util.Date;
 public class User
 {
 	private Integer  userId;
-	private String username;
-	private String password;
+	private String nume;
+	private String prenume;
 	private String email;
-	private Integer  age;
-	private String description;
 	private String cNP;
-	private Date dateOfBirth;
+	private String numberTelefon;
 	private Date creationTime;
 	
 	public Integer  getUserId()
@@ -34,24 +32,24 @@ public class User
 		this.userId = userId;
 	}
 	
-	public String getUsername()
+	public String getNume()
 	{
-		return this.username;
+		return this.nume;
 	}
 	
-	public void setUsername(String username)
+	public void setNume(String nume)
 	{
-		this.username = username;
+		this.nume = nume;
 	}
 	
-	public String getPassword()
+	public String getPrenume()
 	{
-		return this.password;
+		return this.prenume;
 	}
 	
-	public void setPassword(String password)
+	public void setPrenume(String prenume)
 	{
-		this.password = password;
+		this.prenume = prenume;
 	}
 	
 	public String getEmail()
@@ -64,26 +62,6 @@ public class User
 		this.email = email;
 	}
 	
-	public Integer  getAge()
-	{
-		return this.age;
-	}
-	
-	public void setAge(Integer  age)
-	{
-		this.age = age;
-	}
-	
-	public String getDescription()
-	{
-		return this.description;
-	}
-	
-	public void setDescription(String description)
-	{
-		this.description = description;
-	}
-	
 	public String getCNP()
 	{
 		return this.cNP;
@@ -94,14 +72,14 @@ public class User
 		this.cNP = cNP;
 	}
 	
-	public Date getDateOfBirth()
+	public String getNumberTelefon()
 	{
-		return this.dateOfBirth;
+		return this.numberTelefon;
 	}
 	
-	public void setDateOfBirth(Date dateOfBirth)
+	public void setNumberTelefon(String numberTelefon)
 	{
-		this.dateOfBirth = dateOfBirth;
+		this.numberTelefon = numberTelefon;
 	}
 	
 	public Date getCreationTime()
@@ -115,27 +93,23 @@ public class User
 	}
 	
 	
-	public User(String username, String password, String email, Integer  age, String description, String cNP, Date dateOfBirth)
+	public User(String nume, String prenume, String email, String cNP, String numberTelefon)
 	{
-		this.username = username;
-		this.password = password;
+		this.nume = nume;
+		this.prenume = prenume;
 		this.email = email;
-		this.age = age;
-		this.description = description;
 		this.cNP = cNP;
-		this.dateOfBirth = dateOfBirth;
+		this.numberTelefon = numberTelefon;
 	}
 	
 	public User()
 	{
 		this(
-			"Test", //Username
-			"Test", //Password
+			"Test", //Nume
+			"Test", //Prenume
 			"Test", //Email
-			0, //Age
-			"Test", //Description
 			"Test", //CNP
-			new Date(0) //DateOfBirth
+			"Test" //NumberTelefon
 		);
 		this.userId = 0;
 		this.creationTime = new Date(0);

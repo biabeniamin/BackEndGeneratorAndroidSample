@@ -15,12 +15,10 @@ import java.util.Date;
 public class Location
 {
 	private Integer  locationId;
-	private Integer  userId;
 	private String deviceName;
-	private Integer  x;
-	private Integer  y;
+	private double x;
+	private double y;
 	private Date creationTime;
-	private User user;
 	
 	public Integer  getLocationId()
 	{
@@ -30,16 +28,6 @@ public class Location
 	public void setLocationId(Integer  locationId)
 	{
 		this.locationId = locationId;
-	}
-	
-	public Integer  getUserId()
-	{
-		return this.userId;
-	}
-	
-	public void setUserId(Integer  userId)
-	{
-		this.userId = userId;
 	}
 	
 	public String getDeviceName()
@@ -52,22 +40,22 @@ public class Location
 		this.deviceName = deviceName;
 	}
 	
-	public Integer  getX()
+	public double getX()
 	{
 		return this.x;
 	}
 	
-	public void setX(Integer  x)
+	public void setX(double x)
 	{
 		this.x = x;
 	}
 	
-	public Integer  getY()
+	public double getY()
 	{
 		return this.y;
 	}
 	
-	public void setY(Integer  y)
+	public void setY(double y)
 	{
 		this.y = y;
 	}
@@ -82,41 +70,17 @@ public class Location
 		this.creationTime = creationTime;
 	}
 	
-	public User getUser()
-	{
-		return this.user;
-	}
 	
-	public void setUser(User user)
+	public Location(String deviceName, double x, double y)
 	{
-		this.user = user;
-	}
-	
-	
-	public Location(Integer  userId, String deviceName, Integer  x, Integer  y)
-	{
-		this.userId = userId;
 		this.deviceName = deviceName;
 		this.x = x;
 		this.y = y;
 	}
 	
-	public Location(Integer  userId, String deviceName, Integer  x, Integer  y, User user)
-	{
-		this(
-			0, //UserId
-			"Test", //DeviceName
-			0, //X
-			0 //Y
-		);
-		this.user = user;
-	
-	}
-	
 	public Location()
 	{
 		this(
-			0, //UserId
 			"Test", //DeviceName
 			0, //X
 			0 //Y

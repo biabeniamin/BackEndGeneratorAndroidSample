@@ -27,13 +27,11 @@ public class UserAdapter extends BaseAdapter
 	{
 		User user;
 		TextView userIdTextBox;
-		TextView usernameTextBox;
-		TextView passwordTextBox;
+		TextView numeTextBox;
+		TextView prenumeTextBox;
 		TextView emailTextBox;
-		TextView ageTextBox;
-		TextView descriptionTextBox;
 		TextView cNPTextBox;
-		TextView dateOfBirthTextBox;
+		TextView numberTelefonTextBox;
 		TextView creationTimeTextBox;
 		
 		user = getItem(position);
@@ -44,24 +42,20 @@ public class UserAdapter extends BaseAdapter
 		}
 		
 		userIdTextBox = (TextView) convertView.findViewById(R.id.userIdTextBox);
-		usernameTextBox = (TextView) convertView.findViewById(R.id.usernameTextBox);
-		passwordTextBox = (TextView) convertView.findViewById(R.id.passwordTextBox);
+		numeTextBox = (TextView) convertView.findViewById(R.id.numeTextBox);
+		prenumeTextBox = (TextView) convertView.findViewById(R.id.prenumeTextBox);
 		emailTextBox = (TextView) convertView.findViewById(R.id.emailTextBox);
-		ageTextBox = (TextView) convertView.findViewById(R.id.ageTextBox);
-		descriptionTextBox = (TextView) convertView.findViewById(R.id.descriptionTextBox);
 		cNPTextBox = (TextView) convertView.findViewById(R.id.cNPTextBox);
-		dateOfBirthTextBox = (TextView) convertView.findViewById(R.id.dateOfBirthTextBox);
+		numberTelefonTextBox = (TextView) convertView.findViewById(R.id.numberTelefonTextBox);
 		creationTimeTextBox = (TextView) convertView.findViewById(R.id.creationTimeTextBox);
 		
 		userIdTextBox.setText(user.getUserId().toString());
-		usernameTextBox.setText(user.getUsername());
-		passwordTextBox.setText(user.getPassword());
+		numeTextBox.setText(user.getNume());
+		prenumeTextBox.setText(user.getPrenume());
 		emailTextBox.setText(user.getEmail());
-		ageTextBox.setText(user.getAge().toString());
-		descriptionTextBox.setText(user.getDescription());
 		cNPTextBox.setText(user.getCNP());
-		dateOfBirthTextBox.setText(user.getDateOfBirth().toString());
-		creationTimeTextBox.setText(user.getCreationTime().toString());
+		numberTelefonTextBox.setText(user.getNumberTelefon());
+		//creationTimeTextBox.setText(user.getCreationTime().toString());
 		
 		return convertView;
 	
